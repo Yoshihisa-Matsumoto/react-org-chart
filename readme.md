@@ -45,6 +45,8 @@ What we added:
 | onConfigChange            | `Function` | To set the latest config to state on change                                                                                                                                       | See usage below            |
 | loadConfig                | `Function` | Pass latest config from state to OrgChart                                                                                                                                         | See usage below            |
 | loadImage(personData)     | `Function` | To get image of person on API call (Optional)                                                                                                                                     | See usage below            |
+| width                     | `Number`   | Component width. Without it, automatically set automatically(Optional)                                                                                                            |                            |
+| height                    | `Number`   | Component width. Without it, calculate manually(Optional)                                                                                                                         |                            |
 
 ### Sample tree data
 
