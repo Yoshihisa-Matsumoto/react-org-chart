@@ -1,5 +1,5 @@
 {
-  "name": "@unicef/react-org-chart",
+  "name": "@yoshmatsumoto/react-org-chart",
   "version": "0.3.4",
   "description": "Simple, high-performance react component for d3 org chart",
   "main": "dist/index.js",
@@ -9,10 +9,10 @@
   "files": [
     "dist/index.js"
   ],
-  "homepage": "https://unicef.github.io/react-org-chart",
+  "homepage": "https://github.com/Yoshihisa-Matsumoto/react-org-chart",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/unicef/react-org-chart.git"
+    "url": "git+https://github.com/Yoshihisa-Matsumoto/react-org-chart.git"
   },
   "scripts": {
     "start": "webpack --watch --mode production",
@@ -21,7 +21,7 @@
     "deploy": "cd examples && npm run deploy"
   },
   "keywords": [],
-  "author": "UNICEF, based on work of Fouad Matin <m@fouad.org>",
+  "author": "Yoshihisa Matsumoto, based on work of Fouad Matin <m@fouad.org> + UNICEF",
   "license": "MIT",
   "devDependencies": {
     "babel-core": "^6.26.0",
