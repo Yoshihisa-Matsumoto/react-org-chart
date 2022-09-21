@@ -4,10 +4,11 @@ const { init } = require('../chart')
 class OrgChart extends PureComponent {
   render() {
     const { id } = this.props
-
-    return createElement('div', {
+    const elem = createElement('div', {
       id,
+      ref: this.ref,
     })
+    return elem
   }
 
   static defaultProps = {

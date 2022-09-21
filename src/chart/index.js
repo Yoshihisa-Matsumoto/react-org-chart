@@ -1,3 +1,4 @@
+const ReactDOM = require('react-dom')
 const d3 = require('d3')
 const { collapse, wrapText, helpers } = require('../utils')
 const defineBoxShadow = require('../defs/defineBoxShadow')
@@ -35,6 +36,8 @@ function init(options) {
     zoomOutId,
     zoomExtentId,
     loadConfig,
+    width,
+    height,
   } = config
 
   // Calculate how many pixel nodes to be spaced based on the
@@ -52,19 +55,22 @@ function init(options) {
     console.error(`react-org-chart: svg root DOM node not found (id: ${id})`)
     return
   }
-
+  //console.log('element', elem)
   // Reset in case there's any existing DOM
   elem.innerHTML = ''
 
-  const elemWidth = elem.offsetWidth
-  const elemHeight = elem.offsetHeight
+  const elemWidth = !!width ? width : elem.offsetWidth
+  const elemHeight = !!height ? height : window.innerHeight - 50
 
   // Setup the d3 tree layout
   config.tree = d3.layout
     .tree()
     .nodeSize([nodeWidth + nodeSpacing, nodeHeight + nodeSpacing])
 
+  //console.log(treeData)
   // Calculate width of a node with expanded children
+
+  if (!treeData.children) treeData.children = []
   const childrenWidth = parseInt((treeData.children.length * nodeWidth) / 2)
 
   // <svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" xml:space="preserve" viewBox="0 0 193 260" enable-background=" new 0 0 193 260" height="260" width="193"
@@ -151,10 +157,10 @@ function init(options) {
     return d3
       .transition()
       .duration(350)
-      .tween('zoom', function() {
+      .tween('zoom', function () {
         var iTranslate = d3.interpolate(zoom.translate(), translate),
           iScale = d3.interpolate(zoom.scale(), scale)
-        return function(t) {
+        return function (t) {
           zoom.scale(iScale(t)).translate(iTranslate(t))
           zoomed()
         }
@@ -166,13 +172,8 @@ function init(options) {
     // Zoom extent to fit svg on the screen
     if (this.id === zoomExtentId) {
       const latestConfig = loadConfig()
-      const {
-        nodeLeftX,
-        nodeRightX,
-        nodeY,
-        elemHeight,
-        elemWidth,
-      } = latestConfig
+      const { nodeLeftX, nodeRightX, nodeY, elemHeight, elemWidth } =
+        latestConfig
 
       const svgWidth = nodeLeftX + nodeRightX
       const svgHeight = nodeY + nodeHeight * 2 + 48
