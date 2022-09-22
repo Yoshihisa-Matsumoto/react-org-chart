@@ -30,8 +30,8 @@ function onParentClick(configOnClick, children) {
 function handleResult(config, d) {
   const { render } = config
 
-  return datum => {
-    const children = datum.children.map(item => {
+  return (datum) => {
+    const children = datum.children.map((item) => {
       if (item.id === d.id) {
         return { ...item, ...d }
       } else {
@@ -40,7 +40,10 @@ function handleResult(config, d) {
     })
 
     const result = { ...datum, children }
-
+    result.x = 0
+    result.y = 0
+    result.x0 = 0
+    result.y0 = 0
     // Pass in the newly rendered datum as the sourceNode
     // which tells the child nodes where to animate in from
     render({
