@@ -1,11 +1,10 @@
 # React Organizational Chart
 
-[//]: #([![npm version](https://badge.fury.io/js/%40unicef%2Freact-org-chart.svg)](https://badge.fury.io/js/%40unicef%2Freact-org-chart))
-
 React component for displaying organizational charts.
 
-This component is based on [@unicef/react-org-chart](https://github.com/unicef/react-org-chart). On top of it, I changed code to fit to latest React version (18.x)
+This component is based on [@unicef/react-org-chart](https://github.com/unicef/react-org-chart). On top of it, I changed code to fit to latest React version (18.x) + minor bug fix ( like error when we try to appear parent node )
 In the future, would like to change the code to functional component + Typescript support
+Now we can use from Typescript React project. see sample code from here (https://github.com/Yoshihisa-Matsumoto/react-org-chart-ts-sample)
 
 ### [View demo](https://unicef.github.io/react-org-chart/)
 
